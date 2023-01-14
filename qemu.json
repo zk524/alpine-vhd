@@ -7,7 +7,6 @@
       "disk_size": 512,
       "memory": 512,
       "format": "raw",
-      "accelerator": "tcg",
       "vm_name": "alpine.raw",
       "disk_interface": "ide",
       "disk_cache": "none",
