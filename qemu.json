@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "qemu",
-      "iso_url": "alpine-virt-3.17.0-x86_64.iso",
+      "iso_url": "https://mirrors.aliyun.com/alpine/latest-stable/releases/x86_64/alpine-virt-3.17.0-x86_64.iso",
       "iso_checksum": "8D4D53BD34B2045E1E219B87887B0DE8D217B6CD4A8B476A077429845A5582BA",
       "disk_size": 512,
       "memory": 512,
@@ -13,7 +13,7 @@
       "net_device": "virtio-net",
       "skip_compaction": true,
       "communicator": "none",
-      "boot_wait": "30s",
+      "boot_wait": "1m",
       "boot_command": [
         "root<enter>",
         "passwd<enter>root<enter>root<enter><wait>",
@@ -39,7 +39,7 @@
       ],
       "headless": true,
       "shutdown_command": "poweroff",
-      "shutdown_timeout": "30m"
+      "shutdown_timeout": "15m"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "hyperv-iso",
-      "iso_url": "alpine-virt-3.17.0-x86_64.iso",
+      "iso_url": "https://mirrors.aliyun.com/alpine/latest-stable/releases/x86_64/alpine-virt-3.17.0-x86_64.iso",
       "iso_checksum": "8D4D53BD34B2045E1E219B87887B0DE8D217B6CD4A8B476A077429845A5582BA",
       "disk_size": 256,
       "generation": 1,
