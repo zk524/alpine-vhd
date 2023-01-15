@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "hyperv-iso",
-      "iso_url": "alpine-virt-3.17.0-x86_64.iso",
+      "iso_url": "https://mirrors.aliyun.com/alpine/latest-stable/releases/x86_64/alpine-virt-3.17.0-x86_64.iso",
       "iso_checksum": "8D4D53BD34B2045E1E219B87887B0DE8D217B6CD4A8B476A077429845A5582BA",
       "disk_size": 256,
       "memory": 256,
@@ -26,10 +26,7 @@
         "echo https://mirrors.aliyun.com/alpine/latest-stable/main/ >> /etc/apk/repositories<enter>",
         "rc-service networking start && rc-update add networking boot<enter><wait>",
         "apk add --quiet parted e2fsprogs e2fsprogs-extra<enter><wait5>",
-        "alias p='parted -sa optimal /dev/sda'<enter>",
-        "p mklabel msdos<enter>",
-        "p mkpart p 0 100%<enter>",
-        "p set 1 boot<enter>",
+        "parted --script /dev/sda mklabel msdos mkpart p 0 100% set 1 boot<enter>",
         "mkfs.ext4 /dev/sda1<enter>",
         "mount -t ext4 /dev/sda1 /mnt<enter>",
         "mkdir /mnt/boot<enter>",
@@ -37,7 +34,7 @@
         "poweroff<enter>"
       ],
       "shutdown_command": "poweroff",
-      "shutdown_timeout": "15m"
+      "shutdown_timeout": "1h"
     }
   ]
 }
