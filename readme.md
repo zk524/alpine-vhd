@@ -22,5 +22,5 @@
 ## Resize disk
 
 - Boot the vm
-- `echo -e 'resizepart 2 100%' | parted /dev/sda`
-- `resize2fs /dev/sda2`
+- `echo -e 'resizepart 1 100%' | parted /dev/sda`
+- `resize2fs /dev/sda1`

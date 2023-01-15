@@ -2,9 +2,10 @@
   "builders": [
     {
       "type": "hyperv-iso",
-      "iso_url": "https://mirrors.aliyun.com/alpine/latest-stable/releases/x86_64/alpine-virt-3.17.0-x86_64.iso",
+      "iso_url": "alpine-virt-3.17.0-x86_64.iso",
       "iso_checksum": "8D4D53BD34B2045E1E219B87887B0DE8D217B6CD4A8B476A077429845A5582BA",
       "disk_size": 256,
+      "memory": 256,
       "generation": 1,
       "differencing_disk": false,
       "skip_compaction": true,
@@ -27,14 +28,11 @@
         "apk add --quiet parted e2fsprogs e2fsprogs-extra<enter><wait5>",
         "alias p='parted -sa optimal /dev/sda'<enter>",
         "p mklabel msdos<enter>",
-        "p mkpart p 0 32MiB<enter>",
-        "p mkpart p 32MiB 100%<enter>",
+        "p mkpart p 0 100%<enter>",
         "p set 1 boot<enter>",
         "mkfs.ext4 /dev/sda1<enter>",
-        "mkfs.ext4 /dev/sda2<enter>",
-        "mount -t ext4 /dev/sda2 /mnt<enter>",
+        "mount -t ext4 /dev/sda1 /mnt<enter>",
         "mkdir /mnt/boot<enter>",
-        "mount -t ext4 /dev/sda1 /mnt/boot<enter>",
         "setup-disk /mnt<enter>",
         "poweroff<enter>"
       ],
