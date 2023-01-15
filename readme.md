@@ -4,7 +4,7 @@
   - qemu-system-x86-64
   - packer
 - command
-  - `packer build qemu.json`
+  - `packer build qemu.json` *(Take about 10 minutes in a low configuration machine.)*
   - `qemu-img convert -f raw -O vpc -o subformat=fixed,force_size output-qemu/alpine alpine.vhd`
 - shell
   - run.sh
