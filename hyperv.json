@@ -13,6 +13,7 @@
       "enable_secure_boot": false,
       "communicator": "none",
       "switch_name": "Default Switch",
+      "headless": true,
       "boot_wait": "5s",
       "boot_command": [
         "root<enter>",
@@ -23,7 +24,7 @@
         "setup-sshd<enter><enter>yes<enter><enter><wait>",
         "echo https://mirrors.aliyun.com/alpine/latest-stable/main/ >> /etc/apk/repositories<enter>",
         "rc-service networking start && rc-update add networking boot<enter><wait>",
-        "apk add --quiet parted e2fsprogs<enter><wait5>",
+        "apk add --quiet parted e2fsprogs e2fsprogs-extra<enter><wait5>",
         "alias p='parted -sa optimal /dev/sda'<enter>",
         "p mklabel msdos<enter>",
         "p mkpart p 0 32MiB<enter>",
@@ -37,7 +38,6 @@
         "setup-disk /mnt<enter>",
         "poweroff<enter>"
       ],
-      "headless": true,
       "shutdown_command": "poweroff",
       "shutdown_timeout": "15m"
     }
